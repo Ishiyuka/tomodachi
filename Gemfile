@@ -61,6 +61,9 @@ gem 'binding_of_caller'
 
 gem 'bcrypt'
 
+gem 'faker'
+
 gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
+
