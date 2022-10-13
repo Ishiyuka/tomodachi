@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :messages do
     collection do
-      message :confirm
+      post :confirm
     end
   end
 end
