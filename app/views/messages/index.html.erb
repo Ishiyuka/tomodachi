@@ -11,7 +11,7 @@
   <tr>
     <td><%= message.content %></td>
     <td><%= link_to '投稿内容確認', message_path(message.id) %></td>
-    <td><%= link_to "投稿を編集する", edit_message_path(message.id) , data: { confirm: '本当に編集しますか？' }%></td>
+    <td><%= link_to "投稿を編集する", edit_message_path(message.id) , data: { confirm: '編集しますか？' }%></td>
     <td><%= link_to '投稿を削除する', message_path(message.id), method: :delete ,data: { confirm: '本当に削除しますか？' }%></td>
   </tr>
 <% end %>
