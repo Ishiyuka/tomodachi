@@ -52,10 +52,6 @@ class MessagesController < ApplicationController
       @message = current_user.messages.build(message_params)
       render :new if @message.invalid?
     end
-  
-    def image
-      @messages = Message.where(user_id: current_user.id).where.not(image: nil)
-    end
 
       private
   
