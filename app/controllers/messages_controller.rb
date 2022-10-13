@@ -3,10 +3,12 @@ class MessagesController < ApplicationController
     
     def index
       @messages = Message.all
+      binding.pry
     end
   
     def new
       @message = Message.new
+      @message.image.build
     end
   
     def create

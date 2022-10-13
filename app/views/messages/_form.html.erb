@@ -14,8 +14,10 @@
     <div class="message_content">
       <%= form.label :content %>
       <%= form.text_field :content %>
+      <%= form.fields_for :images do |i| %>
+        <%= i.file_field :image %>
     </div>
-    <%= form.submit %>
+    <%= form.submit "投稿" %>
   <% end %>
 
   <%= link_to "投稿一覧画面にもどる", messages_path %>
