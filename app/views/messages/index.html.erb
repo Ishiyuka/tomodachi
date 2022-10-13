@@ -8,9 +8,23 @@
   </tr>
 
 <% @messages.each do |message| %>
+
   <tr>
-    <td><%= message.title %></td>
-    <td><%= message.content %></td>
+  <td>ユーザー
+  <%= message.user.name %></td>
+  </tr>
+
+  <tr>
+    <td>タイトル
+    <%= message.title %></td>
+  </tr>
+
+  <tr>
+    <td>投稿内容
+    <%= message.content %></td>
+  </tr>
+  
+  <tr>
     <td><%= image_tag message.image.url %></td>
     <td><%= link_to '投稿内容確認', message_path(message.id) %></td>
     <td><%= link_to "投稿を編集する", edit_message_path(message.id) , data: { confirm: '編集しますか？' }%></td>
