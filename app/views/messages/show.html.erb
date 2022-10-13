@@ -1,15 +1,18 @@
 <br>
 <h1>投稿確認画面</h1>
-<p>投稿内容: <%= @messsage.content %></p>
+<p>投稿内容: <%= @messsage %></p>
 
 <p id="notice"><%= notice %></p>
 
+<p>タイトル: <%= @message.title %></p>
+<p>内容: <%= @message.content %></p>
+
 <p>
   <strong>Image:</strong>
-  <%= image_tag @feed.image.url %>
+  <%= image_tag @message.image.url %>
 </p>
 
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>
 
 <%= link_to "投稿一覧画面にもどる", messages_path %>

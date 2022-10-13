@@ -6,8 +6,11 @@ class MessagesController < ApplicationController
     end
   
     def new
-      @message = Message.new
-      @message.image.build
+      if params[:back]
+        @message = Message.new(message_params)
+      else
+        @message = Message.new
+      end
     end
   
     def create
@@ -33,7 +36,7 @@ class MessagesController < ApplicationController
   
     def update
       @message = Message.find(params[:id])
-      if @message.update(post_params)
+      if @message.update(message_params)
         redirect_to messages_path, notice: "投稿を編集しました！"
       else
         render :edit
@@ -41,7 +44,7 @@ class MessagesController < ApplicationController
     end
   
     def destroy
-      @post.destroy
+      @message.destroy
       redirect_to messages_path, notice:"投稿を削除しました！"
     end
   
@@ -50,18 +53,18 @@ class MessagesController < ApplicationController
       render :new if @message.invalid?
     end
   
+    def image
+      @messages = Message.where(user_id: current_user.id).where.not(image: nil)
+    end
+
       private
-  
-      def message_params
-        params.require(:message).permit(:content)
-      end
   
       def set_message
         @message = Message.find(params[:id])
       end
 
       def message_params
-        params.require(:message).permit(:image, :image_cache)
+        params.require(:message).permit(:title, :content, :image, :image_cache)
       end
   end
   
