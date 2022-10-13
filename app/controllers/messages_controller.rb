@@ -59,5 +59,9 @@ class MessagesController < ApplicationController
       def set_message
         @message = Message.find(params[:id])
       end
+
+      def message_params
+        params.require(:message).permit(:image, :image_cache)
+      end
   end
   

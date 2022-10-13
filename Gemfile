@@ -67,3 +67,5 @@ gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
 
+gem 'carrierwave', '~> 2.0'
+gem "mini_magick"
